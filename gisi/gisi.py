@@ -11,7 +11,7 @@ from .config import Config
 from .constants import FileLocations, Info
 from .core import Core
 from .signals import GisiSignal
-from .stats import Statistics
+# from .stats import Statistics
 from .utils import FontManager, WebDriver
 
 log = logging.getLogger(__name__)
@@ -45,9 +45,9 @@ class Gisi(AutoShardedBot):
         self.webhook = Webhook.from_url(self.config.webhook_url, adapter=AsyncWebhookAdapter(
             self.aiosession)) if self.config.webhook_url else None
 
-        self.statistics = Statistics(self)
+        # self.statistics = Statistics(self)
         self.fonts = FontManager(self)
-        self.add_cog(self.statistics)
+        # self.add_cog(self.statistics)
         self.add_cog(Core(self))
 
         self.unloaded_extensions = []

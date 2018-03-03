@@ -259,8 +259,8 @@ class Draw:
         await ctx.message.delete()
 
     async def create_wordcloud(self, ctx, text, flags, *, file_title="wordcloud.png"):
-        WC_WIDTH = 600
-        WC_HEIGHT = 400
+        WC_WIDTH = 1920
+        WC_HEIGHT = 1080
 
         font = (self.font_manager.get(flags.get("f", ""), False) or self.font_manager.random()).location
         try:

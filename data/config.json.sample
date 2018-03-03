@@ -1,3 +1,7 @@
 {
-  "token": "<Your token here>"
+	"command_prefix": "allhail",
+	"google_api_key": "it's goooogle ~.~",
+	"mongodb_uri": "mongodb+srv://user:pass@cluster0.whatever.something.atlas.bleh.gcp.mongodb.net/gisi",
+	"webhook_url": "https://github.giesela.io/thisisnotarealwebhook",
+	"token": "mfa.master.token.of.all.hail.down.password.is.god"
 }
