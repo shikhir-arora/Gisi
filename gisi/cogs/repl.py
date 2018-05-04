@@ -128,7 +128,7 @@ class EmbedShell():
                         item,
                         history[item])
 
-                haste_url = hastebin.post(str(history_string))
+                haste_url = await hastebin.post(str(history_string))
 
                 self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
@@ -220,7 +220,7 @@ class EmbedShell():
             try:
                 if fmt is not None:
                     if len(fmt) >= 800:
-                        haste_url = hastebin.post(str(fmt))
+                        haste_url = await hastebin.post(str(fmt))
                         self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
                             value="[`Content too big to be printed. "
