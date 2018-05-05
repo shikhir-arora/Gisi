@@ -169,7 +169,7 @@ class EmbedShell():
                     if len(cleaned) > 800:
                         cleaned = "<Too big to be printed>"
                     if len(return_msg) > 800:
-                        haste_url = hastebin.post(str(return_msg))
+                        haste_url = await hastebin.post(str(return_msg))
 
                     self.repl_embeds[shell].add_field(
                         name="`>>> {}`".format(cleaned),
