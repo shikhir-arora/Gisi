@@ -14,7 +14,7 @@ import io
 class EmbedShell():
     def __init__(self, bot):
         self.bot = bot
-        # self.aiosession = bot.aiosession
+        self.aiosession = bot.aiosession
         self.repl_sessions = {}
         self.repl_embeds = {}
 
@@ -128,7 +128,7 @@ class EmbedShell():
                         item,
                         history[item])
 
-                haste_url = await hastebin.post(str(history_string))
+                haste_url = await hastebin.post(self.aiosession, str(history_string))
 
                 self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
@@ -169,7 +169,7 @@ class EmbedShell():
                     if len(cleaned) > 800:
                         cleaned = "<Too big to be printed>"
                     if len(return_msg) > 800:
-                        haste_url = await hastebin.post(str(return_msg))
+                        haste_url = await hastebin.post(self.aiosession, str(return_msg))
 
                     self.repl_embeds[shell].add_field(
                         name="`>>> {}`".format(cleaned),
@@ -220,7 +220,7 @@ class EmbedShell():
             try:
                 if fmt is not None:
                     if len(fmt) >= 800:
-                        haste_url = await hastebin.post(str(fmt))
+                        haste_url = await hastebin.post(self.aiosession, str(fmt))
                         self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
                             value="[`Content too big to be printed. "
