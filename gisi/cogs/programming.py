@@ -82,7 +82,8 @@ class Programming:
             except TypeError:
                 raw_result = result = str(ret)
             if len(result) > 1024:
-                haste_url = await hastebin.post(str(raw_result))
+                haste_url = await hastebin.post(self.aiosession, str(raw_result))
+                em.url = haste_url
                 result = f"The result is too big. [Here's a link to a Hastebin]({haste_url})"
             em.add_field(
                 name="Result",
@@ -91,7 +92,7 @@ class Programming:
         if out:
             result = "\n".join(out)
             if len(result) > 1024:
-                haste_url = await hastebin.post(str(result))
+                haste_url = await hastebin.post(self.aiosession, str(result))
                 result = f"The Output is too big. [Here's a link to a Hastebin]({haste_url})"
             em.add_field(
                 name="Output",
