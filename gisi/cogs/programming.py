@@ -31,7 +31,7 @@ class Programming:
             "out = []\n"
             "def print(*args):\n"
             "\tout.append(\" \".join(str(arg) for arg in args))\n"
-            "async def func():"
+            "async def func():\n"
             f"{inst}"
         )
         env = {**globals(), **locals()}
