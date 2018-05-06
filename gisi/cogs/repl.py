@@ -132,8 +132,8 @@ class EmbedShell():
 
                 self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
-                            value="[`Exited. History for latest session: "
-                                  "View on Hastebin.`]({})".format(
+                            value="[Exited. History for latest session: "
+                                  "View on Hastebin.]({})".format(
                                 haste_url),
                             inline=False)
 
@@ -223,8 +223,8 @@ class EmbedShell():
                         haste_url = await hastebin.post(self.aiosession, str(fmt))
                         self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
-                            value="[`Content too big to be printed. "
-                                  "Hosted on Hastebin.`]({})".format(
+                            value="[Content too big to be printed. "
+                                  "Hosted on Hastebin.]({})".format(
                                 haste_url),
                             inline=False)
 
