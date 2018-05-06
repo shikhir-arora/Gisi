@@ -84,7 +84,7 @@ class Programming:
             if len(result) > 1024:
                 haste_url = await hastebin.post(self.aiosession, str(raw_result))
                 em.url = haste_url
-                result = f"`>>>` **The result is too big:** [***Here's a link to a Hastebin!***]({haste_url})"
+                result = f"`>>>` **The result is too big:** [Here's a link to a Hastebin!]({haste_url})"
             em.add_field(
                 name="Result",
                 value=result
@@ -94,7 +94,7 @@ class Programming:
             if len(result) > 1024:
                 haste_url = await hastebin.post(self.aiosession, str(result))
                 em.url = haste_url
-                result = f"`>>>` **The Output is too big:** [***Here's a link to a Hastebin!***]({haste_url})"
+                result = f"`>>>` **The Output is too big:** [Here's a link to a Hastebin!]({haste_url})"
             em.add_field(
                 name="Output",
                 value=result
