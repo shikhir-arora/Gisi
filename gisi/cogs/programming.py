@@ -8,7 +8,7 @@ from discord import Embed
 from discord.ext.commands import command
 
 from gisi.constants import Colours
-from gisi.utils import hastebin, text_utils
+from gisi.utils import github, text_utils
 
 log = logging.getLogger(__name__)
 
@@ -82,9 +82,10 @@ class Programming:
             except TypeError:
                 raw_result = result = str(ret)
             if len(result) > 1024:
-                haste_url = await hastebin.post(self.aiosession, str(raw_result))
-                em.url = haste_url
-                result = f"`>>>` **The result is too big:** [Here's a link to a Hastebin!]({haste_url})"
+                gist = await github.create_gist(self.aiosession, f"Result for:\n{ctx.clean_content}",
+                                                {"result.json": raw_result})
+                em.url = gist.html_url
+                result = f"`>>>` **The result is too big:**\n [Here's a link to a Gist!]({gist.html_url})"
             em.add_field(
                 name="Result",
                 value=result
@@ -92,9 +93,10 @@ class Programming:
         if out:
             result = "\n".join(out)
             if len(result) > 1024:
-                haste_url = await hastebin.post(self.aiosession, str(result))
-                em.url = haste_url
-                result = f"`>>>` **The Output is too big:** [Here's a link to a Hastebin!]({haste_url})"
+                gist = await github.create_gist(self.aiosession, f"Console output for:\n{ctx.clean_content}",
+                                                {"output.hs": result})
+                em.url = gist.html_url
+                result = f"`>>>` **The Output is too big:**\n [Here's a link to a Gist!]({gist.html_url})"
             em.add_field(
                 name="Output",
                 value=result

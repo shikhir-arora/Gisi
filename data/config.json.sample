@@ -1,5 +1,6 @@
 {
 	"command_prefix": "allhail",
+	"gist_token": "th1saisn0tar2e3alt0kenxyzs0ifyou2bcth1ink1tisid12kwut",
 	"google_api_key": "it's goooogle ~.~",
 	"mongodb_uri": "mongodb+srv://user:pass@cluster0.whatever.something.atlas.bleh.gcp.mongodb.net/gisi",
 	"webhook_url": "https://github.giesela.io/thisisnotarealwebhook",

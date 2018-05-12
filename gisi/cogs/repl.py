@@ -4,7 +4,7 @@ import collections
 import inspect
 import traceback
 from contextlib import redirect_stdout
-from gisi.utils import hastebin
+from gisi.utils import github
 import aiohttp
 import io
 
@@ -128,13 +128,14 @@ class EmbedShell():
                         item,
                         history[item])
 
-                haste_url = await hastebin.post(self.aiosession, str(history_string))
+                gist = await github.create_gist(self.aiosession, "History for latest session:",
+                                                {"history.hs": str(history_string)})
 
                 self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
                             value="[Exited. History for latest session: "
-                                  "View on Hastebin.]({})".format(
-                                haste_url),
+                                  "View on Gist.]({})".format(
+                                gist.html_url),
                             inline=False)
 
                 try:
@@ -169,7 +170,8 @@ class EmbedShell():
                     if len(cleaned) > 800:
                         cleaned = "<Too big to be printed>"
                     if len(return_msg) > 800:
-                        haste_url = await hastebin.post(self.aiosession, str(return_msg))
+                        gist = await github.create_gist(self.aiosession, "Overflow for session:",
+                                                {"overflow.hs": str(return_msg)})
 
                     self.repl_embeds[shell].add_field(
                         name="`>>> {}`".format(cleaned),
@@ -220,12 +222,14 @@ class EmbedShell():
             try:
                 if fmt is not None:
                     if len(fmt) >= 800:
-                        haste_url = await hastebin.post(self.aiosession, str(fmt))
+                        gist = await github.create_gist(self.aiosession, "Overflow for session:",
+                                                {"overflow.hs": str(fmt)})
+
                         self.repl_embeds[shell].add_field(
                             name="`>>> {}`".format(cleaned),
                             value="[Content too big to be printed. "
-                                  "Hosted on Hastebin.]({})".format(
-                                haste_url),
+                                  "Hosted on Gist.]({})".format(
+                                gist.html_url),
                             inline=False)
 
                         await self.repl_sessions[session].edit(embed=self.repl_embeds[shell])
