@@ -9,7 +9,7 @@ motor==1.2.2
 numpy==1.14.5
 pillow==5.1.0
 selenium==3.12.0
-validators
+validators==0.12.2
 wordcloud
 dnspython
 
