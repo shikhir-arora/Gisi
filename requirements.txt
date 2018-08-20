@@ -1,6 +1,6 @@
 aiodns==1.1.1
 aiohttp==3.3.2
-beautifulsoup4==4.6.0
+beautifulsoup4==4.6.3
 cchardet==2.1.1
 colorlog==3.1.4
 https://github.com/siku2/Eventory/archive/master.zip
