@@ -6,7 +6,7 @@ colorlog==3.1.4
 https://github.com/siku2/Eventory/archive/master.zip
 matplotlib==2.2.3
 motor==2.0.0
-numpy==1.15.0
+numpy==1.15.1
 pillow==5.2.0
 selenium==3.14.0
 validators==0.12.2
