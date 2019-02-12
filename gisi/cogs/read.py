@@ -1,17 +1,17 @@
 import discord
-from discord.ext import commands
+from discord.ext.commands import command
 import logging
 
 log = logging.getLogger(__name__)
-  
-class Markread:
+
+class Read:
     """Marks stuff as read or something.
     """
-    
+
     def __init__(self, bot):
         self.bot = bot
-                   
-    @command
+
+    @command()
     async def read(self, ctx, id: int=None):
         """Marks a specified server as read. If an ID is not provided, all servers will be marked as read."""
         await ctx.message.delete()
