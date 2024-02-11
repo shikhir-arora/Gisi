@@ -11,6 +11,6 @@ pillow==9.0.1
 selenium==3.141.0
 validators==0.12.3
 wordcloud==1.5.0
-dnspython==1.16.0
+dnspython==2.6.0rc1
 
 https://github.com/GieselaDev/discord.py/archive/rewrite.zip#egg=discord.py[voice]
